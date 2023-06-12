@@ -37,6 +37,16 @@
           }
         }
       }
+    },
+    {
+      "label": "Server-app",
+      "command": "ng s --host=127.0.0.1",
+      "type": "shell",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ]
 }
