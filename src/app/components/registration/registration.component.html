@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1 class="text-center">Регистрация</h1>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <form [formGroup]='form'>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <label class="form-label">Имя</label>
+        <input type="text" class="form-control" placeholder="Ваше имя" formControlName="name">
+        <app-validation-label [control]="this.form.get('name')" errorType='required'>Поле "имя" обязательно.
+        </app-validation-label>
+        <app-validation-label [control]="this.form.get('name')" errorType='pattern'>В имени должны быть только символы
+          кириллицы или латиницы.</app-validation-label>
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <label class="form-label">Фамилия</label>
+        <input type="text" class="form-control" placeholder="Ваша фамилия" formControlName="surname">
+        <app-validation-label [control]="this.form.get('surname')" errorType='required'>Поле "фамилия" обязательно.
+        </app-validation-label>
+        <app-validation-label [control]="this.form.get('surname')" errorType='pattern'>В фамилии должны быть только
+          символы кириллицы или латиницы.</app-validation-label>
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <label class="form-label">Отчество</label>
+        <input type="text" class="form-control" placeholder="Ваше отчество" formControlName="patronymic">
+        <app-validation-label [control]="this.form.get('patronymic')" errorType='required'>Поле "фамилия" обязательно.
+        </app-validation-label>
+        <app-validation-label [control]="this.form.get('patronymic')" errorType='pattern'>В отчестве должны быть только
+          символы кириллицы или латиницы.</app-validation-label>
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <label class="form-label">Пол</label>
+        <select class="form-control" formControlName="sex">
+          <option value="Female">Женщина</option>
+          <option value="Male">Мужчина</option>
+        </select>
+        <app-validation-label [control]="this.form.get('sex')" errorType='required'>Поле "пол" обязательно.
+        </app-validation-label>
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <label class="form-label">Логин</label>
+        <input type="text" class="form-control" placeholder="Ваш логин" formControlName="username">
+        <app-validation-label [control]="this.form.get('username')" errorType='required'>Поле "логин" обязательно.
+        </app-validation-label>
+        <app-validation-label [control]="this.form.get('username')" errorType='pattern'>В логине должны быть только
+          символы латиницы и(или) спецсимволы.</app-validation-label>
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <label class="form-label">Почта</label>
+        <input type="email" class="form-control" placeholder="Ваша почта" formControlName="email">
+        <app-validation-label [control]="this.form.get('email')" errorType='required'>Поле "почта" обязательно.
+        </app-validation-label>
+        <app-validation-label [control]="this.form.get('email')" errorType='email'>Проверьте правильность введенной
+          электронной почты.</app-validation-label>
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <label class="form-label">Пароль</label>
+        <input type="password" class="form-control" placeholder="Ваш пароль" formControlName="password">
+        <app-validation-label [control]="this.form.get('password')" errorType='required'>Поле "пароль" обязательно.
+        </app-validation-label>
+        <app-validation-label [control]="this.form.get('password')" errorType='minLength'>Минимальный размер пароля - 8
+          символов.</app-validation-label>
+      </div>
+    </div>
+    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-3">
+        <button type="button" class="btn btn-primary" (click)="submitAccount()"
+          [disabled]="form.invalid">Зарегистрировать</button>
+      </div>
+    </div>
+  </form>
+</div>
+<app-overlay-loader [isLoading]="this.isLoading"></app-overlay-loader>
+<app-modal-window></app-modal-window>
+
